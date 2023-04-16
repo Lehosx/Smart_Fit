@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "769317587654",
+    "project_id": "gymproject-9e845",
+    "storage_bucket": "gymproject-9e845.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:769317587654:android:eb4d52ee42d1f6ede9e5c7",
+        "android_client_info": {
+          "package_name": "com.lehos.musicplayer"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "769317587654-rq64phti4hb1ehot6dgb8hgbupemiqbl.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBw8RKM2_RtueVs5CpNLQm2-KPutZuJFEo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "769317587654-rq64phti4hb1ehot6dgb8hgbupemiqbl.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
