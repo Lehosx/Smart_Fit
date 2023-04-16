@@ -161,11 +161,6 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        if(toggle.onOptionsItemSelected(item))
-            return true
-        return super.onOptionsItemSelected(item)
-    }
 
     @SuppressLint("SetTextI18n")
     private fun initializeLayout(){
@@ -247,6 +242,18 @@ class MainActivity : AppCompatActivity() {
 
         })
         return super.onCreateOptionsMenu(menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        if(toggle.onOptionsItemSelected(item))
+            return true
+        return super.onOptionsItemSelected(item)
+    }
+
+
+    override fun onBackPressed() {
+        val intent= Intent(this,HomeActivity::class.java)
+        startActivity(intent)
     }
 
 }

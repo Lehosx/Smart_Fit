@@ -53,6 +53,13 @@ class MusicService: Service() {
 
         val exitIntent = Intent(baseContext, NotificationReceiver::class.java).setAction(App.EXIT)
         val exitPendingIntent = PendingIntent.getBroadcast(baseContext, 0 , exitIntent, flag)
+//        val intent = Intent("close_app")
+//        val exitPendingIntent = PendingIntent.getBroadcast(
+//            this,
+//            System.currentTimeMillis().toInt(),
+//            intent,
+//            PendingIntent.FLAG_UPDATE_CURRENT
+//        )
 
         val imgArt = getImgArt(PlayerActivity.musicListPA[PlayerActivity.songPosition].path)
         val image = if (imgArt != null) {

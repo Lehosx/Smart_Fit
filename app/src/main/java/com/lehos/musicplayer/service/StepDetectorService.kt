@@ -28,9 +28,7 @@ class StepDetectorService : Service(), SensorEventListener {
         val countSensor: Sensor? = sensorManager.getDefaultSensor(Sensor.TYPE_STEP_COUNTER)
 
         if(countSensor != null){
-            Toast.makeText(this, "Step Detecting Start", Toast.LENGTH_SHORT).show()
             sensorManager.registerListener(this, countSensor, SensorManager.SENSOR_DELAY_NORMAL)
-
             GeneralHelper.updateNotification(this, this, PrefsHelper.getInt("FSteps"))
 //            Log.d("abcd","sdjijvn")
 //            GeneralHelper.updateNotification(this, this, 100)
