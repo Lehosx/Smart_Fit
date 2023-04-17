@@ -9,6 +9,7 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
+import com.google.firebase.auth.FirebaseAuth
 import com.lehos.musicplayer.databinding.ActivityHomeBinding
 import com.lehos.musicplayer.service.StepDetectorService
 
@@ -19,6 +20,9 @@ class HomeActivity : AppCompatActivity(), stepsCallback {
         super.onCreate(savedInstanceState)
         binding = ActivityHomeBinding.inflate(layoutInflater)
         setContentView(binding!!.root)
+//        binding!!.welcomeText.setText()
+        binding!!.welcomeText.text = FirebaseAuth.getInstance().currentUser!!.displayName
+
 
         if(ContextCompat.checkSelfPermission(this,
                 android.Manifest.permission.ACTIVITY_RECOGNITION) == PackageManager.PERMISSION_DENIED){
@@ -72,9 +76,10 @@ class HomeActivity : AppCompatActivity(), stepsCallback {
     }
 
     fun home_social_btn(view: View?) {
-        val intent = Intent(this@HomeActivity, MainActivity::class.java)
+        val intent = Intent(this@HomeActivity, Social_home::class.java)
         startActivity(intent)
     }
+
 
 
     override fun onBackPressed() {
