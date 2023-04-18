@@ -4,10 +4,13 @@ import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Build
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuItem
 import android.view.View
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.Toolbar
 import androidx.core.content.ContextCompat
 import com.google.firebase.auth.FirebaseAuth
 import com.lehos.musicplayer.databinding.ActivityHomeBinding
@@ -21,7 +24,9 @@ class HomeActivity : AppCompatActivity(), stepsCallback {
         binding = ActivityHomeBinding.inflate(layoutInflater)
         setContentView(binding!!.root)
 //        binding!!.welcomeText.setText()
-        binding!!.welcomeText.text = FirebaseAuth.getInstance().currentUser!!.displayName
+        val toolbar = findViewById<Toolbar>(R.id.toolBar)
+        setSupportActionBar(toolbar)
+        binding!!.welcomeText.text ="Welcome " + FirebaseAuth.getInstance().currentUser!!.displayName
 
 
         if(ContextCompat.checkSelfPermission(this,
@@ -78,6 +83,24 @@ class HomeActivity : AppCompatActivity(), stepsCallback {
     fun home_social_btn(view: View?) {
         val intent = Intent(this@HomeActivity, Social_home::class.java)
         startActivity(intent)
+    }
+
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        val menuInflater = menuInflater
+        menuInflater.inflate(R.menu.logout_menu, menu)
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        val id = item.itemId
+        if (id == R.id.logout) {
+            FirebaseAuth.getInstance().signOut()
+            startActivity(Intent(this@HomeActivity, LoginActivity::class.java))
+            finish()
+            return true
+        }
+        return false
     }
 
 

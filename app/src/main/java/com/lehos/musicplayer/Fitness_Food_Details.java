@@ -23,7 +23,7 @@ public class Fitness_Food_Details extends AppCompatActivity {
         setContentView(R.layout.activity_fitness_food_details);
 
         details_text= findViewById(R.id.details_text);
-        String details_story = getIntent().getStringExtra("story");
+        String details_story = getIntent().getStringExtra("details_story");
         details_text.setText(details_story);
 
 
